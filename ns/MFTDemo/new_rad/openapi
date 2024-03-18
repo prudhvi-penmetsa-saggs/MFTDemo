@@ -1,0 +1,119 @@
+openapi: 3.0.1
+info:
+  title: Student
+  version: "1.0"
+servers:
+- url: http://EC2AMAZ-JKCOMCR:5556/gateway/Student/1.0
+paths:
+  /student/{id}:
+    summary: "/student/{id}"
+    get:
+      operationId: studentid_GET_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          readOnly: false
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/studentid_GET_response'
+              examples: {}
+        "401":
+          description: Access Denied
+          content: {}
+  /student:
+    summary: /student
+    post:
+      operationId: student_POST_2
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/student'
+            examples: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/student_POST_response'
+              examples: {}
+        "401":
+          description: Access Denied
+          content: {}
+components:
+  schemas:
+    student:
+      required:
+      - addressline1
+      - addressline2
+      - city
+      - country
+      - email
+      - firstName
+      - id
+      - lastName
+      - mobile
+      - phone
+      - state
+      - zipcode
+      type: object
+      properties:
+        zipcode:
+          type: string
+        country:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        city:
+          type: string
+        phone:
+          type: string
+        mobile:
+          type: string
+        addressline2:
+          type: string
+        addressline1:
+          type: string
+        id:
+          type: string
+        state:
+          type: string
+        email:
+          type: string
+    studentid_GET_response:
+      required:
+      - student
+      type: object
+      properties:
+        student:
+          $ref: '#/components/schemas/student'
+    student_POST_response:
+      required:
+      - insertCount
+      - message
+      type: object
+      properties:
+        insertCount:
+          type: string
+        message:
+          type: string
+  responses: {}
+  parameters: {}
+  examples: {}
+  requestBodies: {}
+  headers: {}
+  links: {}
+  callbacks: {}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="http://tmsdatahub.softwareag-gs.com:5556">7c7d258e-87d5-471c-93f1-550cef15c044</value>
+  </record>
+</IDataXMLCoder>
